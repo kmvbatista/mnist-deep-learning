@@ -1,5 +1,4 @@
 import random
-import numpy
 import numpy as np
 import file_handler
 
@@ -113,7 +112,7 @@ class Network(object):
         for b, w in zip(self.biases, self.weights):
             z = np.dot(w, a)+b
             a = self.sigmoid(z)
-        return 
+        return a
 
     def get_mini_batches(self, mini_batch_size, training_data_quantity):
         return [
@@ -127,7 +126,7 @@ class Network(object):
         return (output_activations-y)
 
     def sigmoid(self, z):
-        return 1.0/(1.0+numpy.exp(-z))
+        return 1.0/(1.0+np.exp(-z))
 
     def get_sigmoid_prime(self, z):
         """Derivative of the sigmoid function."""
